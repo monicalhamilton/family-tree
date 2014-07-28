@@ -1,8 +1,7 @@
-
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -192,8 +191,8 @@ public class Solution {
 		} while (person1NextGen != null || person2NextGen != null);
 
 		// Perform one last check
-		Set<Person> ancestorsInCommon = anyoneInCommon(
-				person1AncestorsSoFar, person2AncestorsSoFar);
+		Set<Person> ancestorsInCommon = anyoneInCommon(person1AncestorsSoFar,
+				person2AncestorsSoFar);
 		if (!ancestorsInCommon.isEmpty()) {
 			if (ancestorsInCommon.size() == 1) {
 				return ancestorsInCommon.iterator().next().getName();
@@ -202,7 +201,7 @@ public class Solution {
 				return ancestorsInCommon.iterator().next().getName();
 			}
 		}
-			
+
 		return null;
 
 	}
@@ -215,21 +214,21 @@ public class Solution {
 	}
 
 	public static void main(String[] args_) {
-		// Scanner in = new Scanner(System.in);
+		Scanner in = new Scanner(System.in);
 		String res;
 		String _tree_str;
-		_tree_str = "{\"Ann\": [\"Betty\", \"Clare\"], "
-				+ "\"Betty\": [\"Donna\", \"Elizabeth\", \"Flora\"], "
-				+ "\"Clare\": [\"Gloria\", \"Hazel\"]}";
-		// _tree_str = in.nextLine();
+		// _tree_str = "{\"Ann\": [\"Betty\", \"Clare\"], "
+		// + "\"Betty\": [\"Donna\", \"Elizabeth\", \"Flora\"], "
+		// + "\"Clare\": [\"Gloria\", \"Hazel\"]}";
+		_tree_str = in.nextLine();
 
 		String _name1;
-		_name1 = "Donna";
-		// _name1 = in.nextLine();
+		// _name1 = "Donna";
+		_name1 = in.nextLine();
 
 		String _name2;
-		_name2 = "Elizabeth";
-		// _name2 = in.nextLine();
+		// _name2 = "Elizabeth";
+		_name2 = in.nextLine();
 
 		res = common(_tree_str, _name1, _name2);
 		System.out.println(res);
